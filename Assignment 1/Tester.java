@@ -40,6 +40,25 @@ public class Tester {
     return g1.toString().equals(Arrays.toString(frogs));
   }
 
+  private static boolean TestAddFrogs2() {
+    int numFrogs = 5;
+    Frog[] frogs = new Frog[numFrogs];
+    
+    frogs[0] = new Frog("Albert");
+    frogs[1] = new Frog("Bartholomew");
+    frogs[2] = new Frog("Diane");
+    frogs[3] = new Frog("Fred");
+    frogs[4] = new Frog("Kretin");
+
+    Group g1 = new Group();
+    for(int i=0; i<numFrogs; i++) {
+      g1.addFrog(frogs[i]);
+    }
+
+    Collections.sort(Arrays.asList(frogs));
+    return g1.toString().equals(Arrays.toString(frogs));
+  }
+
   private static boolean TestAddFrogSize(int numFrogs) {
     Group g1 = new Group();
     for(int i=0; i<numFrogs; i++) {
@@ -88,6 +107,8 @@ public class Tester {
     
     System.out.println("Initializing frogs...");
     PrintTest("Test frog ordering", TestAddFrog(1000));
+    PrintTest("Test frog ordering", TestAddFrog(2000));
+    PrintTest("Test adding frogs", TestAddFrogs2());
     PrintTest("Test group size()", TestAddFrogSize(1000));
     PrintTest("Halfgroup() even", TestHalfGroups(8));
     PrintTest("Halfgroup() odd", TestHalfGroups(9));
@@ -152,7 +173,7 @@ public class Tester {
       }
     }
 
-    PrintTest("FrogEquals() basic test 4", TestFrogEquals(g1, g2, false));
+    PrintTest("FrogEquals() basic test 5", TestFrogEquals(g1, g2, false));
   }
     
 
