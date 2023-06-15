@@ -76,18 +76,18 @@ public class Group {
   }
 
   public static boolean FrogEquals(Group g1, Group g2) {
-    if(g1.numFrogs != g2.numFrogs){
+    if(g1.size() != g2.size()){
       return false;
     }
     boolean equalFrogs = true;
-    for(int i = 0; i < g1.numFrogs; i++){
+    for(int i = 0; i < g1.size(); i++){
       if(!g1.get(i).equals(g2.get(i))){
         equalFrogs = false;
         break;
       }
     }
     
-    if(g1.numFrogs < 2){
+    if(g1.size() < 2){
       return equalFrogs;
     }
 
